@@ -1,0 +1,17 @@
+﻿/ simpleClear.mas
+	ORG 100
+    
+    Load x
+    Add y
+    Store z
+    Clear
+    Load x
+    Subt y
+    Store z2
+    Halt
+
+    
+x,	DEC 17
+y,	DEC 10
+z,	DEC 0
+z2,	DEC 0

@@ -1,0 +1,25 @@
+﻿/	Tomando como referencia un sensor que entrega 
+/	una lectura a través de un bus paralelo a razón 
+/	de 12 bits/ms, realizar un programa dentro del 
+/	entorno de MARIE, que almacene las primeras 50 
+/	mediciones en memoria (.mas).
+
+			ORG 100
+getData,	Clear
+			Input
+			StoreI array
+            Load array
+            Add one
+            Store array
+            Clear
+            Load size
+            Subt one
+            Store size
+            Skipcond 400
+            Jump getData
+            Halt
+
+one,	DEC 1
+size,	DEC 50
+array,	Hex 000
+		DEC 0

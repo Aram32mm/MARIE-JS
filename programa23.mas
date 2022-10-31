@@ -1,0 +1,33 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Example 4.4
+
+			ORG 100
+Getch, 		LoadI Chptr
+			Skipcond  400
+			Jump Outp
+        	Halt
+
+Outp, 		Output
+			Load Chptr
+			Add One
+			Store Chptr
+        	Jump Getch
+
+One, 		HEX 0001
+Chptr, 		HEX 10B
+String, 	DEC     72      / H
+            DEC     101     / E
+            DEC     108     / L
+            DEC     108     / L
+            DEC     111     / O
+            DEC     032    	/ " "
+            DEC     119     / W
+            DEC     111     / O
+            DEC     114     / R
+            DEC     108     / L
+            DEC     100     / D
+            DEC     033     / !
+            DEC     000     / NULL

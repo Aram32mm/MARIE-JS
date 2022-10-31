@@ -1,0 +1,73 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Ejercicio 5
+/	Realiza un programa que calcule: Y=X-2*A-3*B-4*C
+
+	Load X
+	Store Y
+	/2*A
+	Load A
+	Store num1
+	Load Dos
+	Store num2
+	JnS Multiplica
+	/Y = X-2A
+	Load Y
+	Subt Temp
+	Store Y
+	Load Temp
+	Clear
+	Store Temp
+	/3*B
+	Load B
+	Store num1
+	Load Tres
+	Store num2
+	JnS Multiplica
+	/Y = X-2A-3B
+	Load Y
+	Subt Temp
+	Store Y
+	Load Y
+	Load Temp
+	Clear
+	Store Temp
+	/4*C
+	Load C
+	Store num1
+	Load Cuatro
+	Store num2
+	JnS Multiplica
+	/Y = X-2A-3B-4C
+	Load Y
+	Subt Temp
+	Store Y
+	Load Y
+	Output
+	Halt
+    
+Multiplica, HEX 000
+Loop2,		Load Temp
+			Add num1
+			Store Temp
+			Load num2
+			Subt Uno
+			Store num2
+			Skipcond 000
+			Jump Loop2
+			JumpI Multiplica
+
+Y, 		DEC 0
+X, 		DEC 30
+Temp, 	DEC 0
+Uno, 	DEC 1
+Dos, 	HEX 1
+Tres, 	HEX 2
+Cuatro, HEX 3
+num1, 	HEX 0
+num2, 	HEX 0
+A, 		DEC 3
+B, 		DEC 2
+C, 		HEX 2

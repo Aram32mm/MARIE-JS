@@ -1,0 +1,47 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/ 	Ejercicio 6
+/ 	Realiza un programa que calcule: Y=5*(A-B+C)
+
+			Load A
+			Store Y
+			Load Y
+			Subt B
+			Store Y
+			Load Y
+			Add C
+			Store Y
+			/Y=5*(A-B+C)
+			Load Y
+			Store num1
+			Load Cinco
+			Store num2
+			JnS Multiplica
+			Load Temp
+			Store Y
+			Output
+			Halt
+    
+Multiplica, HEX 000
+
+Loop2, 		Load Temp
+			Add num1
+			Store Temp
+			Load num2
+			Subt Uno
+			Store num2
+			Skipcond 000
+			Jump Loop2
+			JumpI Multiplica
+
+Y,		DEC 0
+Temp, 	DEC 0
+Uno, 	DEC 1
+Cinco, 	HEX 4
+num1, 	HEX 0
+num2, 	HEX 0
+A, 		DEC 3
+B, 		DEC 2
+C, 		HEX 2

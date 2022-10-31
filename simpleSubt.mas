@@ -1,0 +1,11 @@
+﻿/ simpleSubt.mas
+	ORG 100
+    Load num1
+    Subt num2
+    Store ans
+    Halt
+
+    
+num1,	DEC 10
+num2,	DEC 8
+ans,	DEC 0

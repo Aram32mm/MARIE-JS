@@ -1,0 +1,29 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Ejercicio 9
+/	Realiza un programa que tome una serie de cinco 
+/	localidades de memoria y a cada una sume un valor: 
+/	La primera 1, la segunda 2, etc. (programa9.mas).
+
+			ORG 100
+sumavalor,	Clear
+			Load localidad
+            Add one
+			StoreI localidad
+            Load localidad
+            Add one
+            Store localidad
+            Clear
+            Load numValor
+            Subt one
+            Store numValor
+            Skipcond 400
+            Jump sumavalor
+            Halt
+
+one,		DEC 1
+numValor,	DEC 5
+localidad,	Hex 010
+			DEC 0

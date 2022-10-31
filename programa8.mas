@@ -1,0 +1,44 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Ejercicio 8
+/	Realiza un programa que tome la primera localidad
+/	de memoria de una secuencia de 6 números, llenando 
+/	las restantes cinco con el valor de la anterior más 
+/	uno (programa8.mas).
+
+
+			ORG 100
+sumavalor,	LoadI localidad	
+			Load valorOrg
+            Skipcond 800
+            Jump cargaValor
+            Clear
+            Load localidad
+            Add one
+            Store localidad
+            Load valorOrg
+            Add one
+            Store valorOrg
+            StoreI localidad
+            
+            Clear   
+            Load numValor
+            Subt one
+            Store numValor
+            Skipcond 400
+            Jump sumavalor
+            Halt
+            
+cargaValor,	Clear
+			Input
+			Store valorOrg
+            StoreI localidad
+            Jump sumavalor
+    
+one,		DEC 1
+numValor,	DEC 5
+valorOrg,	DEC 0
+localidad,	Hex 000
+			DEC 0

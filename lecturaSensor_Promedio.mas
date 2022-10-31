@@ -1,0 +1,76 @@
+﻿/	Tomando como referencia un sensor que entrega una lectura
+/	a través de un bus paralelo a razón de 12 bits/ms, realiza 
+/	lo siguiente:
+
+/	Un programa que después de guardar en memoria los datos 
+/	leídos del sensor, obtenga la media estadística de al menos 
+/	10 mediciones almacenadas.
+/	Adicionalmente, se espera que el sensor esté mandando 
+/	continuamente datos en el formato especificado.
+/	Por lo tanto, cada vez que el sensor almacena 10 nuevos datos,
+/	debe imprimir el resultado de la media estadística en el puerto
+/	de salida (Output).
+
+			ORG 100				
+
+getData,	Clear											/ 100
+			Input 											/ 101
+			StoreI array 	 								/ 102
+            Add sum          								/ 103
+			Store sum        								/ 104			
+            / Actualizamos direccion de memoria
+            Load array 		 								/ 105			
+            Add one 										/ 106					
+            Store array      								/ 107				
+            / Actualizamos contador y control
+            Clear 											/ 108					 
+			Load cont      									/ 109				 
+			Add one											/ 10A				
+			Store cont										/ 10B		
+			Subt diez										/ 10C								
+			Skipcond 000   									/ 10D			
+			Jump AVERAGE									/ 10E		
+			/ Controlamos el ciclo con tamaño
+            Clear 											/ 10F				
+            Load size  										/ 110					
+            Subt one 										/ 111			
+            Store size										/ 112		 
+            Skipcond 400 									/ 113			
+            Jump getData 									/ 114					
+            Halt 											/ 115				
+           
+         
+/ Función que saca el promedio   
+AVERAGE, 	Load sum     									/ 116				
+			Skipcond 800  									/ 117					
+			Jump print    									/ 118				
+			Subt diez      									/ 119					
+			Store sum    									/ 11A						
+			Clear 											/ 11B					
+			Load average    								/ 11C								 
+			Add one											/ 11D					
+			Store average									/ 11E							
+			Clear 											/ 11F								
+			Jump  AVERAGE									/ 120							
+
+/Función que imprime el promedio
+print, 		Load average									/ 121							
+			Output 											/ 122			
+            Clear											/ 123						
+            Store average									/ 124										
+            Store sum										/ 125								
+            Store cont										/ 126					
+            JumpI dir										/ 127				
+            
+            
+dir,		HEX 10F		/Dir de memoria para validar		/ 128					
+one,		DEC 1		/ 1									/ 129		
+diez, 		DEC 10		/ 10								/ 12A	
+cont, 		DEC 0		/ Contador para los 10 numeros		/ 12B				
+sum, 		DEC 0		/ Suma de numeros 					/ 12C	
+average, 	DEC 0    	/ Promedio de suma/cont				/ 12D			
+size,		DEC 50		/ Numero de datos a almacenar		/ 12E					
+array,		Hex 000		/ Direccion de memoria				/ 12F
+						/ para  guardar los numeros 
+
+

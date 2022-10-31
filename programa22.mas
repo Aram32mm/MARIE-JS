@@ -1,0 +1,27 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Example 4.2
+
+/	If x==y then
+/	x = x*2
+/	else
+/	y = y-x
+
+		ORG 100
+If, 	Load X
+		Subt Y
+		Skipcond  400
+		Jump Else
+Then, 	Load X
+		Add X
+		Store X
+		Jump Endif
+Else, 	Load Y
+		Subt X
+		Store Y
+Endif, 	Halt
+
+X, 		DEC	12
+Y, 		DEC 12

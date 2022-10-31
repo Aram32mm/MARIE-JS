@@ -1,0 +1,57 @@
+﻿/	José Aram Méndez Gómez - A01657142	
+/	Iñaki Vigil Arrechea - A01662274	
+/	María Fernanda Argueta - A00830194
+
+/	Ejercicio 7
+/	Realiza un programa que invierta 4 localidades 
+/	de memoria (programa7.mas).
+
+			ORG 100
+invertLoc, 	Jump print		/ 100
+			Load local4		/ 101
+           	StoreI aux 		/ 102
+            Load local1 	/ 103
+            Store local4 	/ 104
+           	LoadI aux 		/ 105
+           	Store local1 	/ 106
+            
+			Load local3 	/ 107
+            StoreI aux 		/ 108
+           	Load local2		/ 109
+           	Store local3 	/ 10A
+            LoadI aux 		/ 10B
+           	Store local2 	/ 10C
+            Jump print		/ 10D
+            Halt 			/ 10E
+
+           
+           
+print,    	LoadI local1 	/ 10F
+            Output 			/ 110
+            LoadI local2 	/ 111
+            Output 			/ 112
+            LoadI local3	/ 113
+            Output 			/ 114
+            LoadI local4 	/ 115
+            Output			/ 115
+            LoadI aux		/ 117
+            Skipcond 400	/ 118
+            JumpI dir2      / 119
+            JumpI dir1      / 11A
+
+            
+
+            
+dir1, 		HEX 101			/ 11B
+dir2, 		HEX 10E			/ 11C
+local1,		HEX	122			/ 11D
+local2,		Hex 123 		/ 11E
+local3, 	Hex 124 		/ 11F
+local4, 	Hex 125 		/ 120
+
+aux, 		Hex 150			/ 121
+
+			DEC 1 			/ 122
+        	DEC 2 			/ 123
+        	DEC 3 			/ 124
+        	DEC 4 			/ 125
